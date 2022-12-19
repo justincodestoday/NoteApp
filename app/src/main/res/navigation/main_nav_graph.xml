@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <action
+        android:id="@+id/toHome"
+        app:destination="@id/homeFragment" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.justin.mynotes.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+        <action
+            android:id="@+id/action_home_to_addNote"
+            app:destination="@id/addNoteFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.justin.mynotes.ui.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_details_to_editNote"
+            app:destination="@id/editNoteFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"
+            app:popEnterAnim="@anim/slide_from_left"
+            app:popExitAnim="@anim/slide_to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.justin.mynotes.ui.AddNoteFragment"
+        android:label="fragment_add_edit_note"
+        tools:layout="@layout/fragment_add_edit_note" />
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.justin.mynotes.ui.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_add_edit_note">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
